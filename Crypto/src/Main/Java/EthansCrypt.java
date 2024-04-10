@@ -11,8 +11,7 @@ public class EthansCrypt {
         this('a','z');
     }
 
-
-    public String TataCrypt(String text) throws UnsupportedOperationException {
+    public String encryptToTATA(String text)throws UnsupportedOperationException {
         String input = text.toUpperCase();
         StringBuilder secret = new StringBuilder();
         for (int i = 0; i < input.length(); i++) {
@@ -30,33 +29,31 @@ public class EthansCrypt {
             if (c.equals("U")) c = "TU-";if (c.equals("V")) c = "TUV-";
             if (c.equals("W")) c = "TUW-";if (c.equals("X")) c = "TUX-";
             if (c.equals("Y")) c = "TUY-";if (c.equals("Z")) c = "TUZ-";
-
-            secret.append(c);
-        }
-        for (int i = 0; i < input.length(); i++) {
-            String c = String.valueOf(input.charAt(i));
-            if (c.equals("TA-")) c = "a";if (c.equals("TAB-")) c = "b";
-            if (c.equals("TAC-")) c = "c";if (c.equals("TAD-")) c = "d";
-            if (c.equals("TE-")) c = "e";if (c.equals("TEF-")) c = "f";
-            if (c.equals("TEG-")) c = "g";if (c.equals("TEH-")) c = "h";
-            if (c.equals("TI-")) c = "i";if (c.equals("TIJ-")) c = "j";
-            if (c.equals("TIK-")) c = "k";if (c.equals("TIL-")) c = "l";
-            if (c.equals("TIM-")) c = "m";if (c.equals("TIN-")) c = "n";
-            if (c.equals("TO-")) c = "o";if (c.equals("TOP-")) c = "p";
-            if (c.equals("TOQ-")) c = "q";if (c.equals("TOR-")) c = "r";
-            if (c.equals("TOS-")) c = "s";if (c.equals("TOT-")) c = "t";
-            if (c.equals("TU-")) c = "u";if (c.equals("TUV-")) c = "v";
-            if (c.equals("TUW-")) c = "w";if (c.equals("TUX-")) c = "x";
-            if (c.equals("TUY-")) c = "y";if (c.equals("TUZ-")) c = "z";
             secret.append(c);
         }
         return secret.toString();
     }
-    public String encrypt(String text) {
-        return TataCrypt(text);
-    }
 
-    public String decrypt(String text) {
-        return TataCrypt(text);
+    public String decryptTATA(String text) {
+        String input = text.toUpperCase();
+        StringBuilder secret = new StringBuilder();
+        for (int i = 0; i < input.length(); i++) {
+            String c = String.valueOf(input.charAt(i));
+            if (c.equals("TA-")) c = "A";if (c.equals("TAB-")) c = "B";
+            if (c.equals("TAC-")) c = "C";if (c.equals("TAD-")) c = "D";
+            if (c.equals("TE-")) c = "E";if (c.equals("TEF-")) c = "F";
+            if (c.equals("TEG-")) c = "g";if (c.equals("TEH-")) c = "H";
+            if (c.equals("TI-")) c = "I";if (c.equals("TIJ-")) c = "J";
+            if (c.equals("TIK-")) c = "K";if (c.equals("TIL-")) c = "L";
+            if (c.equals("TIM-")) c = "M";if (c.equals("TIN-")) c = "N";
+            if (c.equals("TO-")) c = "O";if (c.equals("TOP-")) c = "P";
+            if (c.equals("TOQ-")) c = "Q";if (c.equals("TOR-")) c = "R";
+            if (c.equals("TOS-")) c = "S";if (c.equals("TOT-")) c = "T";
+            if (c.equals("TU-")) c = "U";if (c.equals("TUV-")) c = "V";
+            if (c.equals("TUW-")) c = "W";if (c.equals("TUX-")) c = "X";
+            if (c.equals("TUY-")) c = "Y";if (c.equals("TUZ-")) c = "Z";
+            secret.append(c);
+        }
+        return secret.toString().toLowerCase();
     }
 }
