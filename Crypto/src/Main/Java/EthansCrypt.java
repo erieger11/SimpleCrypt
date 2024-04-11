@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class EthansCrypt {
     Character cs;
     Character cf;
@@ -11,24 +13,39 @@ public class EthansCrypt {
         this('a','z');
     }
 
-    public String encryptToTATA(String text)throws UnsupportedOperationException {
+    public String encryptToTATA(String text) throws UnsupportedOperationException {
         String input = text.toUpperCase();
         StringBuilder secret = new StringBuilder();
         for (int i = 0; i < input.length(); i++) {
             String c = String.valueOf(input.charAt(i));
-            if (c.equals("A")) c = "TA-";if (c.equals("B")) c = "TAB-";
-            if (c.equals("C")) c = "TAC-";if (c.equals("D")) c = "TAD-";
-            if (c.equals("E")) c = "TE-";if (c.equals("F")) c = "TEF-";
-            if (c.equals("G")) c = "TEG-";if (c.equals("H")) c = "TEH-";
-            if (c.equals("I")) c = "TI-";if (c.equals("J")) c = "TIJ-";
-            if (c.equals("K")) c = "TIK-";if (c.equals("L")) c = "TIL-";
-            if (c.equals("M")) c = "TIM-";if (c.equals("N")) c = "TIN-";
-            if (c.equals("O")) c = "TO-";if (c.equals("P")) c = "TOP-";
-            if (c.equals("Q")) c = "TOQ-";if (c.equals("R")) c = "TOR-";
-            if (c.equals("S")) c = "TOS-";if (c.equals("T")) c = "TOT-";
-            if (c.equals("U")) c = "TU-";if (c.equals("V")) c = "TUV-";
-            if (c.equals("W")) c = "TUW-";if (c.equals("X")) c = "TUX-";
-            if (c.equals("Y")) c = "TUY-";if (c.equals("Z")) c = "TUZ-";
+            switch (c) {
+                case "A": c = "TA-"; break;
+                case "B": c = "TAB-"; break;
+                case "C": c = "TAC-"; break;
+                case "D": c = "TAD-"; break;
+                case "E": c = "TE-"; break;
+                case "F": c = "TEF-"; break;
+                case "G": c = "TEG-"; break;
+                case "H": c = "TEH-"; break;
+                case "I": c = "TI-"; break;
+                case "J": c = "TIJ-"; break;
+                case "K": c = "TIK-"; break;
+                case "L": c = "TIL-"; break;
+                case "M": c = "TIM-"; break;
+                case "N": c = "TIN-"; break;
+                case "O": c = "TO-"; break;
+                case "P": c = "TOP-"; break;
+                case "Q": c = "TOQ-"; break;
+                case "R": c = "TOR-"; break;
+                case "S": c = "TOS-"; break;
+                case "T": c = "TOT-"; break;
+                case "U": c = "TU-"; break;
+                case "V": c = "TUV-"; break;
+                case "W": c = "TUW-"; break;
+                case "X": c = "TUX-"; break;
+                case "Y": c = "TUY-"; break;
+                case "Z": c = "TUZ-"; break;
+            }
             secret.append(c);
         }
         return secret.toString();
@@ -37,21 +54,38 @@ public class EthansCrypt {
     public String decryptTATA(String text) {
         String input = text.toUpperCase();
         StringBuilder secret = new StringBuilder();
-        for (int i = 0; i < input.length(); i++) {
-            String c = String.valueOf(input.charAt(i));
-            if (c.equals("TA-")) c = "A";if (c.equals("TAB-")) c = "B";
-            if (c.equals("TAC-")) c = "C";if (c.equals("TAD-")) c = "D";
-            if (c.equals("TE-")) c = "E";if (c.equals("TEF-")) c = "F";
-            if (c.equals("TEG-")) c = "g";if (c.equals("TEH-")) c = "H";
-            if (c.equals("TI-")) c = "I";if (c.equals("TIJ-")) c = "J";
-            if (c.equals("TIK-")) c = "K";if (c.equals("TIL-")) c = "L";
-            if (c.equals("TIM-")) c = "M";if (c.equals("TIN-")) c = "N";
-            if (c.equals("TO-")) c = "O";if (c.equals("TOP-")) c = "P";
-            if (c.equals("TOQ-")) c = "Q";if (c.equals("TOR-")) c = "R";
-            if (c.equals("TOS-")) c = "S";if (c.equals("TOT-")) c = "T";
-            if (c.equals("TU-")) c = "U";if (c.equals("TUV-")) c = "V";
-            if (c.equals("TUW-")) c = "W";if (c.equals("TUX-")) c = "X";
-            if (c.equals("TUY-")) c = "Y";if (c.equals("TUZ-")) c = "Z";
+        String[] tatain = input.split("-");
+        String c;
+        for (String s : tatain) {
+            switch (s) {
+                case "TA": c = "A"; break;
+                case "TAB": c = "B"; break;
+                case "TAC": c = "C"; break;
+                case "TAD": c = "D"; break;
+                case "TE": c = "E"; break;
+                case "TEF": c = "F"; break;
+                case "TEG": c = "G"; break;
+                case "TEH": c = "H"; break;
+                case "TI": c = "I"; break;
+                case "TIJ": c = "J"; break;
+                case "TIK": c = "K"; break;
+                case "TIL": c = "L"; break;
+                case "TIM": c = "M"; break;
+                case "TIN": c = "N"; break;
+                case "TO": c = "O"; break;
+                case "TOP": c = "P"; break;
+                case "TOQ": c = "Q"; break;
+                case "TOR": c = "R"; break;
+                case "TOS": c = "S"; break;
+                case "TOT": c = "T"; break;
+                case "TU": c = "U"; break;
+                case "TUV": c = "V"; break;
+                case "TUW": c = "W"; break;
+                case "TUX": c = "X"; break;
+                case "TUY": c = "Y"; break;
+                case "TUZ": c = "Z"; break;
+                default: c = ""; break;
+            }
             secret.append(c);
         }
         return secret.toString().toLowerCase();
